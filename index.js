@@ -1,9 +1,9 @@
 var HOLD = document.getElementById("holder")
-var COOKIES = document.cookie
-console.log(COOKIES)
-if (COOKIES == "") {
-    HOLD.innerHTML = "no cookies, saving your data!"
-    document.cookie = "hello=world; expires=Thu, 31 Dec 2025 12:00:00 UTC!"
+var STORAGE = localStorage.getItem("test") || ""
+
+if (STORAGE == "") {
+    HOLD.innerHTML = "this text will be different when you enter again!"
+    localStorage.setItem("test", "hello, world!")
 } else {
-    HOLD.innerHTML = COOKIES
+    HOLD.innerHTML = STORAGE
 }
